@@ -10,18 +10,14 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 app.use('/api/notes', routes);
 
-// Display notes.html when /notes is accessed
 app.get('/notes', (req, res) => {
   res.sendFile(path.join(__dirname, '/public/notes.html'));
 });
 
-// Display index.html when all other routes are accessed
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '/public/index.html'));
 });
 
-// Starts the server to begin listening
-// =============================================================
 app.listen(PORT, () =>
-  console.log(`App listening at http://localhost:${PORT} 🚀`)
+  console.log(`App listening at port ${PORT}`)
 );
